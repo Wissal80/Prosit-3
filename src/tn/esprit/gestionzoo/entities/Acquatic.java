@@ -1,37 +1,33 @@
 package tn.esprit.gestionzoo.entities;
 
-public class Acquatic extends Animal{
-    private  String habitat;
-    private float SwimingSpeed;
+public non-sealed class Acquatic extends Animal  {
 
+    private String habitat ;
 
-    public Acquatic(String family, String name, int age, Boolean isMammal, String habitat) {
+    public Acquatic(){
+        super();
+    }
+    public Acquatic(String family, String name , int age , boolean isMammal , String habitat){
         super(family, name, age, isMammal);
         this.habitat = habitat;
-        this.SwimingSpeed=SwimingSpeed;
     }
 
     public String getHabitat() {
-        return habitat;
+        return this.habitat;
     }
 
-    public float getSwimingSpeed() {
-        return SwimingSpeed;
+    public void swim() {
+        System.out.println("This aquatic animal is swimming.");
     }
 
-    public void setHabitat(String habitat) {
-        this.habitat = habitat;
-    }
-
-    public void setSwimingSpeed(float swimingSpeed) {
-        SwimingSpeed = swimingSpeed;
-    }
-
-    @Override
-    public String toString() {
-        return "Acquatic{" +
-                "habitat='" + habitat + '\'' +
-                ", SwimingSpeed=" + SwimingSpeed +
-                '}';
+    public boolean equals(Object obj) {
+        if (this == obj) {
+            return true;
+        }
+        if (obj == null || getClass() != obj.getClass()) {
+            return false;
+        }
+        Acquatic aquatic = (Acquatic) obj;
+        return getAge() == aquatic.getAge() && getName().equals(aquatic.getName()) && habitat.equals(aquatic.habitat);
     }
 }
